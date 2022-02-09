@@ -8,7 +8,7 @@
 #Ans: Completed
 #################################################################################
 
-#2.	Completed the following tasks:
+#2.	Complete the following tasks:
   
 #a)	Figure out how to install the packages tidyverse, dplyr and ggplot2
 #Ans: Use the following syntax to install the packages, install.packages("tidyverse ") and to use these packages use the command with following syntax #library(tidyverse)
