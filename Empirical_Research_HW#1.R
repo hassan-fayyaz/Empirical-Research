@@ -430,8 +430,10 @@ Sys.time()
 #################################################################################
   
 #h)	Why do you think the next two commands produce the same output?
-#Ans: The next two commands produce the same output because even though we are asking for date and time in both of them which is expected to give us
-# a different result but the format restrict r to provide time instead of date. 
+#Ans:
+
+'The following two commands produce the same output because we ask for date and time in both of them, 
+which should give us a different result, but the format restricts r to provide time instead of date. '
 
 
 format(Sys.Date(), format="%m/%d/%Y")
