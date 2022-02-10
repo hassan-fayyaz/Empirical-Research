@@ -395,6 +395,7 @@ summary(mtcars)
 #g)	Run the command x = rnorm(10).  What does the following commands do?
 #Ans:
 
+#Normal Distribution
 x = rnorm(10)
 
 print(x)
