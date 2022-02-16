@@ -39,7 +39,7 @@ exp(12.43)
 '2) Determine the area of a circle with a diameter of 50 inches and assign the 
 result to a variable called area_circle. (Hint, use the pi function)'
 
-#Formula:  Area of a circle = ?? × r2
+#Formula:  Area of a circle = ?? Ã— r2
 area_circle <- pi * (50)^2
 print(area_circle)
 '[1] 7853.982'
@@ -1192,8 +1192,8 @@ print(bmi_fakestudents)
 '9) Compare the BMI of the new dataset to the old data set.  Notice anything 
 interesting?'
 
-x = mode(bmi_fakestudents)
-y = mode(bmi)
+x = (bmi_fakestudents)
+y = (bmi)
 t.test(x,y, mu=24.5)
 
 'Welch Two Sample t-test
