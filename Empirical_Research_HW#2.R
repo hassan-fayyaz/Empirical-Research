@@ -39,10 +39,11 @@ exp(12.43)
 '2) Determine the area of a circle with a diameter of 50 inches and assign the 
 result to a variable called area_circle. (Hint, use the pi function)'
 
-#Formula:  Area of a circle = ?? × r2
-area_circle <- pi * (50)^2
+#Formula:  Area of a circle = pi × r2
+#Radius: Diameter/2 | Which is 50/2 = 25
+area_circle <- pi * (25)^2
 print(area_circle)
-'[1] 7853.982'
+'[1] 1963.495'
 
 #################################################################################
 '3) Use the concatenate function c() to create a vector called weight containing 
