@@ -89,23 +89,25 @@ height_rank, from the tallest (1) to the shortest (2).  Repeat the same for
 weight, bmi, and name (alphabetically).  For bmi, order it from lowest to 
 highest. (Hint, use the seq() function).   '
 
-height_rank <- rev(seq(height))
-print(height_sorted)
-'[1] 60 50 49 47 42 42 41 40 38 35'
+#Sorting the dataframe from tallest to shortest
+alldata <- alldata[order(alldata$height, decreasing=TRUE),]
 
-weight_rank <- rev(seq(height))
-print(weight) 
-'[1] 140 120 117 139 129  94  86 106 107 126'
+height_rank <- rev(sort(height))
+print(height_rank)
+' [1] 60 50 49 47 42 42 41 40 38 35'
 
-bmi_rank <- (seq(bmi))
-print(bmi)
-'[1] 44.55410 52.72500 48.92980 79.76898 25.19083 37.46145 24.18320 31.03623 
- 52.09211 50.21429'
+weight_rank <- rev(sort(weight))
+print(weight_rank) 
+' [1] 140 139 129 126 120 117 107 106  94  86'
 
-name_rank <- rev(seq(bmi))
-print(name)
-'[1] "John"      "Megan"     "Ryan"      "Isabela"   "Matt"      "Lindsay"   "Tony"      "Mary Jane" "Chase"    
- [10] "Delaney"'
+bmi_rank <- (sort(bmi))
+print(bmi_rank)
+' [1] 24.18320 25.19083 31.03623 37.46145 44.55410 48.92980 50.21429 52.09211 52.72500 79.76898'
+
+name_rank <- rev(sort(name))
+print(name_rank)
+' [1] "Tony"      "Ryan"      "Megan"     "Matt"      "Mary Jane" "Lindsay"   "John"      "Isabela"   "Delaney"  
+[10] "Chase" '
 
 '6)  Calculate the mean and standard deviation of the height and weight 
 variables above and store them as height_mean, height_sd, weight_mean, 
