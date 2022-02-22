@@ -1,0 +1,236 @@
+---
+title: "Empirical Research HW#3"
+author: "Hassan Fayyaz"
+date: "2/22/2022"
+output: pdf_document
+---
+
+
+```{r}
+#Cleaning the environment
+rm(list = ls())
+```
+
+#######################
+
+# Loading Packages
+
+#######################
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+library(tidyr)
+```
+
+```{r}
+library(lubridate)
+```
+
+```{r}
+library(rmarkdown)
+```
+
+
+#################################################################################
+
+1) Find the natural log, log to the base 10, square root and the natural 
+anti-log of 12.43
+
+#################################################################################
+
+```{r}
+#natural log
+log(12.43)
+
+#log to the base of 10
+log10(12.43)
+
+# square root
+sqrt(12.43) 
+
+# natural anti-log
+exp(12.43)
+```
+
+
+#################################################################################
+
+2) Determine the area of a circle with a diameter of 50 inches and assign the 
+result to a variable called area_circle. (Hint, use the pi function)
+
+#################################################################################
+
+```{r}
+#Formula:  Area of a circle = pi × r2
+#Radius: Diameter/2 | Which is 50/2 = 25
+
+area_circle <- pi * (25)^2
+print(area_circle)
+```
+
+#################################################################################
+
+3) Use the concatenate function c() to create a vector called weight containing 
+the weight (in lb) of 10 children: 120, 117, 139, 129, 94, 86, 106, 107, 126.  
+Do the same for height in inches; 47, 40, 41, 35, 60, 42, 50, 49, 38, 42.  
+Then calculate the bmi (weight/ the square of the height) of the kids.
+
+#################################################################################
+
+```{r}
+weight <- c(140, 120, 117, 139, 129, 94, 86, 106, 107, 126)
+height <- c(47, 40, 41, 35, 60, 42, 50, 49, 38, 42)
+
+bmi <- (weight/(height)^2) * 703 
+print(bmi)
+```
+
+#################################################################################
+
+4) Create a new variable defined as name;, “John”, “Megan”, “Ryan”, “Isabela”, 
+“Matt”, “Lindsay”, “Tony”, “Mary Jane”, “Chase” and “Delaney”.  Create a 
+dateframe of name, height, weight, bmi and call it alldata.
+
+#################################################################################
+
+```{r}
+name <- c("John", "Megan", "Ryan", "Isabela", "Matt", "Lindsay", "Tony", 
+          "Mary Jane", "Chase", "Delaney")
+
+alldata <- data.frame(c("name", "height", "weight", "bmi"))
+```
+
+#################################################################################
+
+5) Sort the dataframe from tallest to shortest. Then create a new variable 
+height_rank, from the tallest (1) to the shortest (2).  Repeat the same for 
+weight, bmi, and name (alphabetically).  For bmi, order it from lowest to 
+highest. (Hint, use the seq() function).
+
+#################################################################################
+
+```{r}
+#Sorting the dataframe from tallest to shortest
+alldata <- alldata[order(alldata$height, decreasing=TRUE),]
+
+#Now creating new variables
+height_rank <- rev(sort(height))
+print(height_rank)
+
+weight_rank <- rev(sort(weight))
+print(weight_rank) 
+
+bmi_rank <- (sort(bmi))
+print(bmi_rank)
+
+name_rank <- rev(sort(name))
+print(name_rank)
+```
+
+#################################################################################
+
+6)  Calculate the mean and standard deviation of the height and weight 
+variables above and store them as height_mean, height_sd, weight_mean, 
+weight_sd.  Using the rnorm function, create two new variables, height2 and 
+weight2 by simulating 10,000  random normal variables with the same mean and 
+standard deviation of the original data sets.
+
+#################################################################################
+
+```{r}
+#Mean & Standard Deviation of Height
+
+height_mean <- mean(height)
+print(height_mean)
+
+height_sd <- sd(height)
+print(height_sd)
+```
+
+```{r}
+#Mean & Standard Deviation of Weight
+
+weight_mean <- mean(weight)
+print(weight_mean)
+
+weight_sd <- sd(weight) 
+print(weight_sd)
+```
+
+```{r}
+#Two new variables
+
+height2 <- rnorm(10000, mean = 44.4, sd = 7.260242)
+print(height2)
+
+weight2 <- rnorm(10000, mean = 116.4, sd = 18.11813)
+print(weight2)
+```
+
+#################################################################################
+
+7) Create 10,000 fake names, name_1, name_2 ... name_10000. (Hint: use the 
+paste() function and the seq() function together).  Call this name2.
+
+#################################################################################
+
+```{r}
+names2 <- paste0("name_", seq(1:10000))
+names2 <- paste("name_", seq(1:10000), sep="")
+names2 <- paste("name", seq(1:10000), sep="_")
+names2 < paste0("n", seq(1:10000), sep="ame_")
+names2 <- paste0("names_", c(1:10000))
+print(names2)
+```
+
+#################################################################################
+
+8) Combine name2, height2, weight2 into a data.frame called alldata2.  
+Calculate the bmi of the fake students and create a column from it.  
+Then rename the all of the column names so that they match the first 
+data.frame.
+
+#################################################################################
+
+```{r}
+#Combining into a data.frame
+alldata2 <- data.frame(name2, height2, weight2)
+print(alldata2)
+```
+
+```{r}
+#Now calculating the BMI of fake students
+alldata2$bmi <- cbind(names2, alldata2$weight/alldata2$height^2 * 703)
+
+#Adding heading for the table
+colnames(alldata2$bmi) <- c("name2", "bmi2")
+
+#printing the table
+print(alldata2$bmi)
+```
+
+#################################################################################
+
+9) Compare the BMI of the new dataset to the old data set.  Notice anything 
+interesting?
+
+#################################################################################
+
+Results: 
+
+After comparison, we have observed that the participants in experiment #1 
+are more likely to be healthy as the majority of the participants have a BMI 
+closer to 24.5, which is considered normal BMI. Whereas participants in 
+experiment #2 are more likely to be obese.
+
+#################################################################################
+
+
+
