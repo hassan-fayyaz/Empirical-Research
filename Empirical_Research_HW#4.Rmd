@@ -477,7 +477,7 @@ ggplot(whaledata,
        aes(x= water.noise, y= number.whales))+
   geom_point()+
   ggtitle("Number of Whales vs Water Noise")+
-  xlab("Month")+
+  xlab("Water Noise")+
   ylab("Number of Whales")+
   theme_minimal()
 ```
